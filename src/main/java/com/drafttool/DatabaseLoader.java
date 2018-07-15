@@ -1,5 +1,7 @@
 package com.drafttool.crispyoctospork;
 
+import com.drafttool.domain.Player;
+import com.drafttool.domain.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
