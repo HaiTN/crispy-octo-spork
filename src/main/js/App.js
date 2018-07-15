@@ -19,7 +19,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<PlayerList players={this.state.players}/>
+			<PlayerList players={this.state.players} />
 		)
 	}
 }

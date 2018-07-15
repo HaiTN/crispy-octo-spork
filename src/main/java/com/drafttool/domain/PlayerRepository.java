@@ -1,4 +1,4 @@
-package com.drafttool.crispyoctospork;
+package com.drafttool.domain;
 
 import org.springframework.data.repository.CrudRepository;
 

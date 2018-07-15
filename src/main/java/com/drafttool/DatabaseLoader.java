@@ -1,4 +1,4 @@
-package com.drafttool.crispyoctospork;
+package com.drafttool;
 
 import com.drafttool.domain.Player;
 import com.drafttool.domain.PlayerRepository;

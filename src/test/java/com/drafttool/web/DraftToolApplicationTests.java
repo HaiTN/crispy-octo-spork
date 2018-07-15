@@ -1,4 +1,4 @@
-package com.drafttool.crispyoctospork;
+package com.drafttool.web;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

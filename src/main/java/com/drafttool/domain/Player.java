@@ -1,4 +1,4 @@
-package com.drafttool.crispyoctospork;
+package com.drafttool.domain;
 
 import lombok.Data;
 
