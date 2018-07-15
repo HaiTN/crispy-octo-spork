@@ -1,8 +1,9 @@
-'use strict';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import client from './client';
 
-const React = require('react');
-const ReactDOM = require('react-dom');
-const client = require('./client');
+import PlayerList from './PlayerList';
+import NavBar from './NavBar';
 
 class App extends React.Component {
 
@@ -19,39 +20,10 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<PlayerList players={this.state.players} />
-		)
-	}
-}
-
-class PlayerList extends React.Component{
-	render() {
-		var players = this.props.players.map(player =>
-			<Player key={player._links.self.href} player={player}/>
-		);
-		return (
-			<table>
-				<tbody>
-					<tr>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Rank</th>
-					</tr>
-					{players}
-				</tbody>
-			</table>
-		)
-	}
-}
-
-class Player extends React.Component{
-	render() {
-		return (
-			<tr>
-				<td>{this.props.player.firstName}</td>
-				<td>{this.props.player.lastName}</td>
-				<td>{this.props.player.rank}</td>
-			</tr>
+		    <div>
+		        <NavBar />
+			    <PlayerList players={this.state.players} />
+		    </div>
 		)
 	}
 }
