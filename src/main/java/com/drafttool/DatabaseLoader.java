@@ -2,6 +2,7 @@ package com.drafttool;
 
 import com.drafttool.domain.Player;
 import com.drafttool.domain.PlayerRepository;
+import com.drafttool.domain.Position;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,6 @@ public class DatabaseLoader implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        this.repository.save(new Player("Lebron", "James", 2));
+        this.repository.save(new Player("Lebron", "James", Position.SF, 2));
     }
 }
