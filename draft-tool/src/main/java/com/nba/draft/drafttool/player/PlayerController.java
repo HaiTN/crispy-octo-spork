@@ -22,6 +22,6 @@ public class PlayerController {
     }
 
     private boolean isGreat(Player player) {
-        return player.getFirstName().equals("Lebron") || player.getRank().equals(1);
+        return player.getFirstName().equals("Lebron") || player.getRank().equals(1) || player.getPlayerPosition().equals(PlayerPosition.C);
     }
 }

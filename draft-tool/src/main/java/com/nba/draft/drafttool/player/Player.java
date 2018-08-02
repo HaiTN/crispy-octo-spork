@@ -15,15 +15,15 @@ public class Player {
     private Long id;
     private String firstName;
     private String lastName;
-    private String position;
+    private PlayerPosition playerPosition;
     private Integer rank;
 
     public Player() {}
 
-    public Player(String firstName, String lastName, String position, Integer rank) {
+    public Player(String firstName, String lastName, PlayerPosition playerPosition, Integer rank) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.position = position;
+        this.playerPosition = playerPosition;
         this.rank = rank;
     }
 
