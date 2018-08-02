@@ -3,6 +3,7 @@ package com.nba.draft.drafttool.player;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -19,6 +20,11 @@ public class PlayerController {
         return playerRepository.findAll().stream()
                 .filter(this::isGreat)
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/all-players")
+    public ArrayList<Player> allPlayers() {
+        return new ArrayList<>(playerRepository.findAll());
     }
 
     private boolean isGreat(Player player) {

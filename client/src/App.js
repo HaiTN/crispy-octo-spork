@@ -1,21 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
+import Button from '@material-ui/core/Button';
+
+import AppToolbar from './components/AppToolbar';
 import PlayerListContainer from './containers/PlayerListContainer';
 
-class App extends Component {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {playerToggle: false};
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(prevState => ({
+      playerToggle: !prevState.playerToggle
+    }));
+  }
+
   render() {
+    const { playerToggle } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <PlayerListContainer />
+        <AppToolbar />
+        {playerToggle ? <PlayerListContainer goodPlayers={true}/> : <PlayerListContainer goodPlayers={false}/>}
+        <Button variant="outlined" color="secondary" onClick={this.handleClick}>
+          {playerToggle ? "All Players" : "Good Players Only"}
+        </Button>
       </div>
     );
   }
