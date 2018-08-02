@@ -1,4 +1,5 @@
 import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
 
 import Button from '@material-ui/core/Button';
@@ -9,12 +10,10 @@ import PlayerListContainer from './containers/PlayerListContainer';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {playerToggle: false};
-
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {playerToggle: true};
   }
 
-  handleClick() {
+  handleClick = () => {
     this.setState(prevState => ({
       playerToggle: !prevState.playerToggle
     }));
@@ -23,13 +22,17 @@ class App extends React.Component {
   render() {
     const { playerToggle } = this.state;
     return (
-      <div className="App">
+      <React.Fragment>
+        <CssBaseline />
+        <div className="App">
         <AppToolbar />
-        {playerToggle ? <PlayerListContainer goodPlayers={true}/> : <PlayerListContainer goodPlayers={false}/>}
+        <PlayerListContainer goodPlayers={playerToggle} />
         <Button variant="outlined" color="secondary" onClick={this.handleClick}>
-          {playerToggle ? "All Players" : "Good Players Only"}
+          {playerToggle ? "See All Players" : "See Good Players Only"}
         </Button>
       </div>
+
+      </React.Fragment>
     );
   }
 }

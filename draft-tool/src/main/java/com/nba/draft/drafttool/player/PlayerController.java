@@ -1,5 +1,6 @@
 package com.nba.draft.drafttool.player;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +17,7 @@ public class PlayerController {
     }
 
     @GetMapping("/good-players")
+    @CrossOrigin(origins = "http://localhost:3000")
     public Collection<Player> goodPlayers() {
         return playerRepository.findAll().stream()
                 .filter(this::isGreat)
@@ -23,6 +25,7 @@ public class PlayerController {
     }
 
     @GetMapping("/all-players")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ArrayList<Player> allPlayers() {
         return new ArrayList<>(playerRepository.findAll());
     }
