@@ -20,6 +20,8 @@ public class DatabaseLoader implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
+        this.playerRepository.save(new Player("Yao", "Ming", PlayerPosition.C, 5));
+        this.playerRepository.save(new Player("Kevin", "Love", PlayerPosition.PF, 6));
         this.playerRepository.save(new Player("Lebron", "James", PlayerPosition.SF, 2));
         this.playerRepository.save(new Player("Kevin", "Durant", PlayerPosition.SF, 50));
         this.playerRepository.save(new Player("Damian", "Lillard", PlayerPosition.PG, 1));

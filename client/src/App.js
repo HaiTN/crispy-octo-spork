@@ -28,7 +28,7 @@ class App extends React.Component {
         <AppToolbar />
         <PlayerListContainer goodPlayers={playerToggle} />
         <Button variant="outlined" color="secondary" onClick={this.handleClick}>
-          {playerToggle ? "See All Players" : "See Good Players Only"}
+          {playerToggle ? "See Bitch Players" : "See Good Players Only"}
         </Button>
       </div>
 

@@ -30,7 +30,19 @@ public class PlayerController {
         return new ArrayList<>(playerRepository.findAll());
     }
 
+    @GetMapping("/bitch-players")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public Collection<Player> getBitchPlayers() {
+        return playerRepository.findAll().stream()
+                .filter(this::isBitch)
+                .collect(Collectors.toList());
+    }
+
     private boolean isGreat(Player player) {
         return player.getFirstName().equals("Lebron") || player.getRank().equals(1) || player.getPlayerPosition().equals(PlayerPosition.C);
+    }
+
+    private boolean isBitch(Player player) {
+        return player.getFirstName().equals("Kevin") && player.getLastName().equals("Durant");
     }
 }
