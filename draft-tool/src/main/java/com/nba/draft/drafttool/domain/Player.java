@@ -1,4 +1,4 @@
-package com.nba.draft.drafttool.player;
+package com.nba.draft.drafttool.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

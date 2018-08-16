@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PlayerList from '../components/PlayerList';
+import { Card } from '../../node_modules/@material-ui/core';
 
 export default class PlayerListContainer extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export default class PlayerListContainer extends React.Component {
   }
 
   componentWillMount() {
-    fetch("http://localhost:8080/all-players")
+    fetch("http://localhost:8080/players/all-players")
     .then(response => response.json())
     .then(data => {
       this.setState({
@@ -19,7 +20,7 @@ export default class PlayerListContainer extends React.Component {
   }
   
   componentWillReceiveProps() {
-    const url = this.props.goodPlayers ? 'http://localhost:8080/bitch-players' : 'http://localhost:8080/good-players';
+    const url = this.props.goodPlayers ? 'http://localhost:8080/players/bitch-players' : 'http://localhost:8080/players/good-players';
 
     fetch(url)
       .then(response => response.json())
@@ -34,7 +35,9 @@ export default class PlayerListContainer extends React.Component {
       const { players } = this.state;
 
       return(
-        <PlayerList players={players} />
+        <Card> 
+          <PlayerList players={players} />
+        </Card>
       )
     }
 }

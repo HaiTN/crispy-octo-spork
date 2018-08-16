@@ -12,7 +12,7 @@ const PlayerList = ({ players }) => {
       <Table className={players.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Players</TableCell>
+            <TableCell>Player ID</TableCell>
             <TableCell>First Name</TableCell>
             <TableCell>Last Name</TableCell>
             <TableCell>Position</TableCell>

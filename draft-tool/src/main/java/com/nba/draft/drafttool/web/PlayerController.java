@@ -1,5 +1,8 @@
-package com.nba.draft.drafttool.player;
+package com.nba.draft.drafttool.web;
 
+import com.nba.draft.drafttool.domain.Player;
+import com.nba.draft.drafttool.domain.PlayerPosition;
+import com.nba.draft.drafttool.jparepository.PlayerJpaRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,30 +13,30 @@ import java.util.stream.Collectors;
 
 @RestController
 public class PlayerController {
-    private PlayerRepository playerRepository;
+    private PlayerJpaRepository playerJpaRepository;
 
-    public PlayerController(PlayerRepository playerRepository) {
-        this.playerRepository = playerRepository;
+    public PlayerController(PlayerJpaRepository playerJpaRepository) {
+        this.playerJpaRepository = playerJpaRepository;
     }
 
-    @GetMapping("/good-players")
+    @GetMapping("/players/good-players")
     @CrossOrigin(origins = "http://localhost:3000")
     public Collection<Player> goodPlayers() {
-        return playerRepository.findAll().stream()
+        return playerJpaRepository.findAll().stream()
                 .filter(this::isGreat)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/all-players")
+    @GetMapping("/players/all-players")
     @CrossOrigin(origins = "http://localhost:3000")
     public ArrayList<Player> allPlayers() {
-        return new ArrayList<>(playerRepository.findAll());
+        return new ArrayList<>(playerJpaRepository.findAll());
     }
 
-    @GetMapping("/bitch-players")
+    @GetMapping("/players/bitch-players")
     @CrossOrigin(origins = "http://localhost:3000")
     public Collection<Player> getBitchPlayers() {
-        return playerRepository.findAll().stream()
+        return playerJpaRepository.findAll().stream()
                 .filter(this::isBitch)
                 .collect(Collectors.toList());
     }
