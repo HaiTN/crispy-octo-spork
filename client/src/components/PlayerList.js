@@ -8,7 +8,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Checkbox } from '../../node_modules/@material-ui/core';
 
-// const PlayerList = ({ players }) => { 
 class PlayerList extends React.Component {
   constructor() {
     super();

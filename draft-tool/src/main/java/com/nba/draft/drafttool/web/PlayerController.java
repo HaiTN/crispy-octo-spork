@@ -1,5 +1,7 @@
 package com.nba.draft.drafttool.web;
 
+import com.nba.draft.drafttool.client.PlayerClient;
+import com.nba.draft.drafttool.domain.ActivePlayers;
 import com.nba.draft.drafttool.domain.Player;
 import com.nba.draft.drafttool.domain.PlayerPosition;
 import com.nba.draft.drafttool.jparepository.PlayerJpaRepository;
@@ -14,9 +16,11 @@ import java.util.stream.Collectors;
 @RestController
 public class PlayerController {
     private PlayerJpaRepository playerJpaRepository;
+    private PlayerClient playerClient;
 
-    public PlayerController(PlayerJpaRepository playerJpaRepository) {
+    public PlayerController(PlayerJpaRepository playerJpaRepository, PlayerClient playerClient) {
         this.playerJpaRepository = playerJpaRepository;
+        this.playerClient = playerClient;
     }
 
     @GetMapping("/players/good-players")
@@ -39,6 +43,12 @@ public class PlayerController {
         return playerJpaRepository.findAll().stream()
                 .filter(this::isBitch)
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/players/get-players")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public String getActivePlayers() {
+        return playerClient.fetchPlayers();
     }
 
     private boolean isGreat(Player player) {
