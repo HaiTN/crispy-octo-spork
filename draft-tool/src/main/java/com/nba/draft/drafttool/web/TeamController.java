@@ -11,21 +11,21 @@ import java.util.ArrayList;
 
 @RestController
 public class TeamController {
-    private TeamRepository teamRepository;
-
-    public TeamController(TeamRepository teamRepository) {
-        this.teamRepository = teamRepository;
-    }
-
-    @GetMapping("/teams/all-teams")
-    @CrossOrigin(origins = "http://localhost:3000")
-    public ArrayList<Team> getAllTeams() {
-        return new ArrayList<>(teamRepository.findAll());
-    }
-
-    @GetMapping("/teams/{id}")
-    @CrossOrigin(origins = "http://localhost:3000")
-    public Team getTeamById(@PathVariable("id") String id) {
-        return teamRepository.getOne(Long.parseLong(id));
-    }
+//    private TeamRepository teamRepository;
+//
+//    public TeamController(TeamRepository teamRepository) {
+//        this.teamRepository = teamRepository;
+//    }
+//
+//    @GetMapping("/teams/all-teams")
+//    @CrossOrigin(origins = "http://localhost:3000")
+//    public ArrayList<Team> getAllTeams() {
+//        return new ArrayList<>(teamRepository.findAll());
+//    }
+//
+//    @GetMapping("/teams/{id}")
+//    @CrossOrigin(origins = "http://localhost:3000")
+//    public Team getTeamById(@PathVariable("id") String id) {
+//        return teamRepository.getOne(Long.parseLong(id));
+//    }
 }

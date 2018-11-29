@@ -1,7 +1,8 @@
 package com.nba.draft.drafttool.client;
 
-import com.nba.draft.drafttool.domain.ActivePlayers;
+import com.nba.draft.drafttool.domain.PlayerResource;
 
 public interface PlayerClient {
-    String fetchPlayers();
+    PlayerResource fetchPlayers();
+    String fetchNewPlayers();
 }

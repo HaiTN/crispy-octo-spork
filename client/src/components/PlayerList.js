@@ -69,7 +69,7 @@ class PlayerList extends React.Component {
                   <TableCell>{player.id}</TableCell>
                   <TableCell>{player.firstName}</TableCell>
                   <TableCell>{player.lastName}</TableCell>
-                  <TableCell>{player.playerPosition}</TableCell>
+                  <TableCell>{player.position}</TableCell>
                   <TableCell numeric>{player.rank}</TableCell>
                 </TableRow>
               );

@@ -17,25 +17,16 @@ public class Player {
     @Id
     @GeneratedValue
     private Long id;
-
-    @JsonProperty("FirstName")
+    @JsonProperty("playerId")
+    private Integer playerId;
+    @JsonProperty("firstName")
     private String firstName;
-
-    @JsonProperty("LastName")
+    @JsonProperty("lastName")
     private String lastName;
-
+    @JsonProperty("teamId")
+    private String teamId;
     @Nullable
-    private PlayerPosition playerPosition;
-
+    private String position;
     @Nullable
     private Integer rank;
-
-    public Player() {}
-
-    public Player(String firstName, String lastName, PlayerPosition playerPosition, Integer rank) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.playerPosition = playerPosition;
-        this.rank = rank;
-    }
 }

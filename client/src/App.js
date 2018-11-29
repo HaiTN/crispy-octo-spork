@@ -18,9 +18,9 @@ class App extends React.Component {
           <Grid item xs={6}>
             <PlayerTable />
           </Grid>
-          <Grid item xs={6}>
+          {/* <Grid item xs={6}>
             <TeamContainer />
-          </Grid>
+          </Grid> */}
         </Grid>
       </div>
 

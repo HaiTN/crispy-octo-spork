@@ -1,10 +1,9 @@
 package com.nba.draft.drafttool.web;
 
-import com.nba.draft.drafttool.client.PlayerClient;
-import com.nba.draft.drafttool.domain.ActivePlayers;
 import com.nba.draft.drafttool.domain.Player;
-import com.nba.draft.drafttool.domain.PlayerPosition;
 import com.nba.draft.drafttool.jparepository.PlayerJpaRepository;
+import com.nba.draft.drafttool.service.PlayerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,13 +14,11 @@ import java.util.stream.Collectors;
 
 @RestController
 public class PlayerController {
+    @Autowired
     private PlayerJpaRepository playerJpaRepository;
-    private PlayerClient playerClient;
 
-    public PlayerController(PlayerJpaRepository playerJpaRepository, PlayerClient playerClient) {
-        this.playerJpaRepository = playerJpaRepository;
-        this.playerClient = playerClient;
-    }
+    @Autowired
+    private PlayerService playerService;
 
     @GetMapping("/players/good-players")
     @CrossOrigin(origins = "http://localhost:3000")
@@ -47,12 +44,12 @@ public class PlayerController {
 
     @GetMapping("/players/get-players")
     @CrossOrigin(origins = "http://localhost:3000")
-    public String getActivePlayers() {
-        return playerClient.fetchPlayers();
+    public Collection<Player> getActivePlayers() throws Exception {
+        return playerService.getAllPlayers();
     }
 
     private boolean isGreat(Player player) {
-        return player.getFirstName().equals("Lebron") || player.getRank().equals(1) || player.getPlayerPosition().equals(PlayerPosition.C);
+        return player.getFirstName().equals("Lebron") || player.getRank().equals(1);
     }
 
     private boolean isBitch(Player player) {
